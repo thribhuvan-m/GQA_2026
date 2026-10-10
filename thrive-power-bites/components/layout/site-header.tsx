@@ -34,6 +34,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-1">
           <button
+            id="cart-button"
             type="button"
             onClick={open}
             className="relative inline-flex h-11 w-11 items-center justify-center rounded-full text-forest transition hover:bg-forest/5"
@@ -41,7 +42,7 @@ export function SiteHeader() {
           >
             <ShoppingBag className="h-5 w-5" aria-hidden="true" />
             {visibleCount > 0 ? (
-              <span className="absolute top-1 right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[0.68rem] font-extrabold text-forest">
+              <span key={visibleCount} className="bump absolute top-1 right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[0.68rem] font-extrabold text-forest">
                 {visibleCount}
               </span>
             ) : null}

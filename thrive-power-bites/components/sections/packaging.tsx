@@ -1,7 +1,6 @@
 import { Box, Gem, Grid3x3, Link2 } from "lucide-react";
 import { powerBites } from "@/config/product";
-import { PackMockup } from "@/components/brand/pack-mockup";
-import { TrayIllustration } from "@/components/brand/tray-illustration";
+import { PackagingVisual } from "@/components/motion/packaging-visual";
 
 export function Packaging() {
   const pk = powerBites.packaging;
@@ -16,14 +15,8 @@ export function Packaging() {
     <section aria-labelledby="packaging-title" className="relative overflow-hidden bg-forest py-16 text-cream sm:py-24">
       <div aria-hidden="true" className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-leaf/20 blur-3xl" />
       <div className="container-page relative grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="flex items-end justify-center gap-6">
-          <PackMockup id="packaging-pack" className="h-80 w-auto sm:h-[26rem]" />
-          <div className="hidden w-56 rounded-3xl bg-cream/5 p-4 ring-1 ring-cream/10 sm:block">
-            <TrayIllustration id="packaging-tray" className="h-auto w-full" />
-            <p className="mt-3 text-center text-xs text-cream/60">Inside: three cavities, one bite each</p>
-          </div>
-        </div>
-        <div>
+        <PackagingVisual />
+        <div data-reveal>
           <p className="eyebrow !text-gold">Proposed packaging</p>
           <h2 id="packaging-title" className="heading-lg mt-4 text-cream">
             Three bites. One neat little pack.

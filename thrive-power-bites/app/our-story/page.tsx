@@ -84,7 +84,7 @@ export default function OurStoryPage() {
           <h2 id="values-title" className="heading-lg mt-4 max-w-2xl">Simple principles, every batch.</h2>
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map(({ icon: Icon, title, body }) => (
-              <li key={title} className="card p-6">
+              <li key={title} data-reveal className="card p-6">
                 <Icon className="h-6 w-6 text-leaf" aria-hidden="true" />
                 <h3 className="heading-md mt-4">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-forest/70">{body}</p>

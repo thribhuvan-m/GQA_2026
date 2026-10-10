@@ -28,7 +28,7 @@ export function Benefits() {
   return (
     <section aria-labelledby="benefits-title" className="py-16 sm:py-24">
       <div className="container-page">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl" data-reveal>
           <p className="eyebrow">Why POWER BITES</p>
           <h2 id="benefits-title" className="heading-lg mt-4">
             A simple snack, thoughtfully made.
@@ -36,8 +36,8 @@ export function Benefits() {
         </div>
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map(({ icon: Icon, title, body }) => (
-            <li key={title} className="card group p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lift">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-forest text-gold transition group-hover:bg-leaf group-hover:text-cream">
+            <li key={title} data-reveal className="card group p-6 transition-shadow duration-300 hover:shadow-lift">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-forest text-gold transition duration-500 group-hover:rotate-[-8deg] group-hover:scale-110 group-hover:bg-leaf group-hover:text-cream">
                 <Icon className="h-6 w-6" aria-hidden="true" />
               </span>
               <h3 className="heading-md mt-5">{title}</h3>

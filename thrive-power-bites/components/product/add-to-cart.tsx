@@ -5,6 +5,7 @@ import { Check, ShoppingBag } from "lucide-react";
 import type { Product } from "@/config/product";
 import { useCart } from "@/components/cart/cart-provider";
 import { formatINR } from "@/lib/format";
+import { flyToCart } from "@/lib/fly-to-cart";
 import { QuantitySelector } from "./quantity-selector";
 
 export function AddToCart({ product, compact = false }: { product: Product; compact?: boolean }) {
@@ -21,14 +22,17 @@ export function AddToCart({ product, compact = false }: { product: Product; comp
   const remaining = Math.max(product.maxQuantityPerOrder - inCart, 0);
   const atLimit = remaining === 0;
 
-  function handleAdd() {
+  function handleAdd(event: React.MouseEvent<HTMLButtonElement>) {
     if (atLimit) return;
-    add(product.id, Math.min(quantity, remaining));
+    const amount = Math.min(quantity, remaining);
     setAdded(true);
     setQuantity(1);
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => setAdded(false), 2200);
-    if (!compact) open();
+    flyToCart(event.currentTarget, () => {
+      add(product.id, amount);
+      if (!compact) open();
+    });
   }
 
   return (

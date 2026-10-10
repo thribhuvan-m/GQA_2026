@@ -52,6 +52,22 @@ docs/                    Research & strategy document
 assets/                  Reference brand/packaging boards and concept renders (not used on the site)
 ```
 
+## Animation
+
+Motion is built with [GSAP](https://gsap.com) + ScrollTrigger (free for commercial use under GSAP's standard licence), [Lenis](https://lenis.darkroom.engineering) smooth scrolling, and plain CSS.
+
+| Effect | Where |
+|---|---|
+| First-load brand intro (sprout draws, curtain lifts) | `components/motion/intro-curtain.tsx` (home page only, once per visit) |
+| Hero line-by-line reveal, drifting leaves, cursor tilt on the pack, magnetic buttons | `components/sections/hero.tsx`, `components/motion/{drifting-leaves,tilt,magnetic}.tsx` |
+| **The journey of one bite**: pinned, scroll-scrubbed story (ingredients converge, bite forms, 0→20 g counter, gold-foil wrap, tray, carton) | `components/motion/bite-journey.tsx` |
+| Packaging scene: carton turns, tray slides out | `components/motion/packaging-visual.tsx` |
+| Section reveals, parallax, number count-ups | Add `data-reveal`, `data-parallax="0.2"` or `data-countup="20"` to any element; handled by `components/motion/reveal-controller.tsx` |
+| Fly-to-cart and badge bump | `lib/fly-to-cart.ts` |
+| Foil shimmer on bites | `components/brand/bites.tsx` |
+
+Visitors with **reduced motion** enabled in their OS get no smooth scrolling, no intro, no shimmer, and a static five-step version of the journey. All content remains available.
+
 ## Editing content
 
 Everything business-related is in `config/`. You should not need to touch components to change content.

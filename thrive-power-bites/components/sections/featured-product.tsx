@@ -4,6 +4,7 @@ import { powerBites } from "@/config/product";
 import { PackMockup } from "@/components/brand/pack-mockup";
 import { PriceTag } from "@/components/product/price-tag";
 import { AddToCart } from "@/components/product/add-to-cart";
+import { Tilt } from "@/components/motion/tilt";
 
 export function FeaturedProduct() {
   const p = powerBites;
@@ -17,10 +18,15 @@ export function FeaturedProduct() {
   return (
     <section aria-labelledby="featured-title" className="pb-16 sm:pb-24">
       <div className="container-page">
-        <div className="card grid overflow-hidden lg:grid-cols-2">
-          <div className="relative flex items-center justify-center bg-gradient-to-br from-beige/70 via-cream-deep to-cream px-6 py-12">
+        <div className="card grid overflow-hidden lg:grid-cols-2" data-reveal>
+          <div className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-beige/70 via-cream-deep to-cream px-6 py-12">
             <div aria-hidden="true" className="absolute h-72 w-72 rounded-full bg-white/60 blur-2xl" />
-            <PackMockup id="featured-pack" className="relative h-80 w-auto sm:h-96" />
+            <div aria-hidden="true" className="absolute h-80 w-80 animate-[spin_60s_linear_infinite] rounded-full border border-dashed border-gold/40" />
+            <Tilt className="relative">
+              <div data-parallax="0.12">
+                <PackMockup id="featured-pack" className="h-80 w-auto sm:h-96" />
+              </div>
+            </Tilt>
           </div>
           <div className="flex flex-col justify-center gap-6 p-7 sm:p-10">
             <div>

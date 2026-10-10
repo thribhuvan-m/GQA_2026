@@ -25,7 +25,7 @@ export default function IngredientsPage() {
             {p.ingredients.map((ingredient) => {
               const Art = ingredientArt[ingredient.name];
               return (
-                <li key={ingredient.name} className="card flex items-center gap-5 p-6">
+                <li key={ingredient.name} data-reveal className="card flex items-center gap-5 p-6">
                   <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-cream">
                     {Art ? (
                       <Art className="h-14 w-14" />
@@ -45,14 +45,14 @@ export default function IngredientsPage() {
           </ul>
 
           <div className="mt-12 grid gap-5 lg:grid-cols-2">
-            <div className="card p-6 sm:p-8">
+            <div data-reveal className="card p-6 sm:p-8">
               <h2 className="heading-md flex items-center gap-2">
                 <AlertTriangle className="h-5 w-5 text-rust" aria-hidden="true" /> Allergens
               </h2>
               <p className="mt-3 text-forest/75">{p.allergenGuidance}</p>
               <p className="mt-4"><PendingPill>Full allergen statement pending</PendingPill></p>
             </div>
-            <div className="card p-6 sm:p-8">
+            <div data-reveal className="card p-6 sm:p-8">
               <h2 className="heading-md">About this list</h2>
               <p className="mt-3 text-forest/75">
                 This list reflects the current recipe. The final ingredient declaration — in descending order by weight, with

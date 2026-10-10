@@ -11,7 +11,7 @@ export function IngredientsOverview() {
     <section id="ingredients" aria-labelledby="ingredients-title" className="bg-white/60 py-16 sm:py-24">
       <div className="container-page">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl" data-reveal>
             <p className="eyebrow">What goes inside</p>
             <h2 id="ingredients-title" className="heading-lg mt-4">
               Familiar ingredients you can recognise.
@@ -26,9 +26,11 @@ export function IngredientsOverview() {
           {featured.map((ingredient) => {
             const Art = ingredientArt[ingredient.name];
             return (
-              <li key={ingredient.name} className="card flex flex-col items-center p-6 text-center">
-                <span className="flex h-24 w-24 items-center justify-center rounded-full bg-cream">
-                  {Art ? <Art className="h-16 w-16" /> : null}
+              <li key={ingredient.name} data-reveal className="card group flex flex-col items-center p-6 text-center">
+                <span className="flex h-24 w-24 items-center justify-center rounded-full bg-cream transition duration-500 group-hover:bg-gold/15">
+                  {Art ? (
+                    <Art className="h-16 w-16 transition duration-500 [transition-timing-function:cubic-bezier(0.3,1.6,0.5,1)] group-hover:-translate-y-1.5 group-hover:scale-110 group-hover:rotate-12" />
+                  ) : null}
                 </span>
                 <h3 className="mt-4 font-bold">{ingredient.name}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-forest/65">{ingredient.description}</p>

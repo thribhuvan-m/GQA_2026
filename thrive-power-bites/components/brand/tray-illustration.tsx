@@ -1,12 +1,28 @@
 import { FoilBiteShape, FoilDefs, UnwrappedBiteShape } from "./bites";
 
 /** Top view of the proposed inner tray: three cavities, two wrapped bites and one unwrapped. */
-export function TrayIllustration({ id, className }: { id: string; className?: string }) {
+export function TrayIllustration({
+  id,
+  className,
+  withBites = true,
+}: {
+  id: string;
+  className?: string;
+  withBites?: boolean;
+}) {
   return (
-    <svg viewBox="0 0 420 200" className={`aspect-[420/200] ${className ?? ""}`} role="img" aria-labelledby={`${id}-title`}>
-      <title id={`${id}-title`}>
-        Concept illustration of the inner tray with three cavities holding two gold-foil wrapped bites and one unwrapped bite
-      </title>
+    <svg
+      viewBox="0 0 420 200"
+      className={`aspect-[420/200] ${className ?? ""}`}
+      role={withBites ? "img" : undefined}
+      aria-hidden={withBites ? undefined : true}
+      aria-labelledby={withBites ? `${id}-title` : undefined}
+    >
+      {withBites ? (
+        <title id={`${id}-title`}>
+          Concept illustration of the inner tray with three cavities holding two gold-foil wrapped bites and one unwrapped bite
+        </title>
+      ) : null}
       <defs>
         <FoilDefs id={id} />
         <linearGradient id={`${id}-tray`} x1="0" y1="0" x2="0" y2="1">
@@ -25,9 +41,13 @@ export function TrayIllustration({ id, className }: { id: string; className?: st
           <circle cx={cx} cy="101" r="52" fill="#DCD2BF" opacity="0.6" />
         </g>
       ))}
-      <FoilBiteShape id={id} cx={90} cy={96} r={46} />
-      <FoilBiteShape id={id} cx={210} cy={96} r={46} />
-      <UnwrappedBiteShape id={id} cx={330} cy={96} r={46} />
+      {withBites ? (
+        <>
+          <FoilBiteShape id={id} cx={90} cy={96} r={46} />
+          <FoilBiteShape id={id} cx={210} cy={96} r={46} />
+          <UnwrappedBiteShape id={id} cx={330} cy={96} r={46} />
+        </>
+      ) : null}
     </svg>
   );
 }
