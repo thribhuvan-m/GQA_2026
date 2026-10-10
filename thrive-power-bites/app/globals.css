@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f7f1e5;
+  --color-cream-deep: #f1e8d6;
+  --color-forest: #173f2b;
+  --color-forest-deep: #0f2c1e;
+  --color-leaf: #6d963f;
+  --color-gold: #dda33d;
+  --color-gold-soft: #f0d39a;
+  --color-beige: #e6d5b8;
+  --color-rust: #b85d32;
+  --color-white: #ffffff;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1.5rem;
+  --shadow-soft: 0 1px 2px rgb(23 63 43 / 0.04), 0 8px 24px -8px rgb(23 63 43 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(23 63 43 / 0.05), 0 24px 48px -16px rgb(23 63 43 / 0.22);
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-cream text-forest antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    @apply bg-gold-soft text-forest;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+  dialog::backdrop {
+    background: rgb(15 44 30 / 0.45);
+    backdrop-filter: blur(2px);
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+
+@utility eyebrow {
+  @apply text-xs font-bold tracking-[0.22em] text-leaf uppercase;
+}
+
+@utility heading-xl {
+  @apply text-4xl leading-[1.05] font-extrabold tracking-tight text-balance sm:text-5xl lg:text-6xl;
+}
+
+@utility heading-lg {
+  @apply text-3xl leading-tight font-extrabold tracking-tight text-balance sm:text-4xl;
+}
+
+@utility heading-md {
+  @apply text-xl font-bold tracking-tight;
+}
+
+@utility lead {
+  @apply text-base leading-relaxed text-forest/75 sm:text-lg;
+}
+
+@utility btn {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-bold tracking-wide transition duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@utility btn-primary {
+  @apply btn bg-forest text-cream shadow-soft hover:-translate-y-0.5 hover:bg-forest-deep hover:shadow-lift active:translate-y-0;
+}
+
+@utility btn-secondary {
+  @apply btn border border-forest/20 bg-white/60 text-forest hover:border-forest/50 hover:bg-white;
+}
+
+@utility btn-ghost {
+  @apply btn px-3 text-forest hover:bg-forest/5;
+}
+
+@utility card {
+  @apply rounded-[var(--radius-card)] border border-forest/8 bg-white/70 shadow-soft;
+}
+
+@utility field-label {
+  @apply mb-1.5 block text-sm font-semibold;
+}
+
+@utility field-input {
+  @apply w-full rounded-xl border border-forest/15 bg-white px-4 py-3 text-base text-forest placeholder:text-forest/40 transition focus:border-forest focus:ring-2 focus:ring-gold/40 focus:outline-none aria-invalid:border-rust aria-invalid:ring-rust/20;
+}
+
+@utility field-error {
+  @apply mt-1.5 text-sm font-medium text-rust;
+}
+
+@utility pending-pill {
+  @apply inline-flex items-center gap-1 rounded-full bg-gold/15 px-2.5 py-0.5 text-xs font-semibold text-[#8a5a12];
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
