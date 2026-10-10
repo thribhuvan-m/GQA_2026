@@ -13,6 +13,14 @@ export function FoilDefs({ id }: { id: string }) {
         <stop offset="82%" stopColor="#9C6512" />
         <stop offset="100%" stopColor="#6E440A" />
       </radialGradient>
+      <clipPath id={`${id}-orb`}>
+        <circle r="40" />
+      </clipPath>
+      <linearGradient id={`${id}-shine`} x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
+        <stop offset="50%" stopColor="#FFFDF2" stopOpacity="0.75" />
+        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+      </linearGradient>
       <radialGradient id={`${id}-bite`} cx="38%" cy="32%" r="72%">
         <stop offset="0%" stopColor="#A8552E" />
         <stop offset="45%" stopColor="#7A3418" />
@@ -47,6 +55,20 @@ export function FoilBiteShape({ id, cx, cy, r }: { id: string; cx: number; cy: n
       </g>
       <ellipse cx="-14" cy="-17" rx="11" ry="6" fill="#FFFBEA" opacity="0.7" transform="rotate(-35 -14 -17)" />
       <path d="M-4 38c-4-3-4-7 0-9 4 2 4 6 0 9Z" fill="#B57A1C" opacity="0.6" />
+      <g clipPath={`url(#${id}-orb)`} className="foil-shimmer">
+        <rect x="-14" y="-60" width="22" height="120" fill={`url(#${id}-shine)`} transform="rotate(24)">
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            values="-90 0; 90 0; 90 0"
+            keyTimes="0; 0.4; 1"
+            dur="4.5s"
+            begin={`${((cx + cy) % 7) * 0.35}s`}
+            repeatCount="indefinite"
+            additive="sum"
+          />
+        </rect>
+      </g>
     </g>
   );
 }
@@ -84,25 +106,25 @@ export function UnwrappedBiteShape({ id, cx, cy, r }: { id: string; cx: number; 
   );
 }
 
-export function FoilBite({ className, id }: { className?: string; id: string }) {
+export function FoilBite({ className, id, shadow = true }: { className?: string; id: string; shadow?: boolean }) {
   return (
     <svg viewBox="0 0 100 100" className={className} aria-hidden="true" focusable="false">
       <defs>
         <FoilDefs id={id} />
       </defs>
-      <ellipse cx="50" cy="92" rx="30" ry="5" fill="#173F2B" opacity="0.12" />
+      {shadow ? <ellipse cx="50" cy="92" rx="30" ry="5" fill="#173F2B" opacity="0.12" /> : null}
       <FoilBiteShape id={id} cx={50} cy={48} r={40} />
     </svg>
   );
 }
 
-export function UnwrappedBite({ className, id }: { className?: string; id: string }) {
+export function UnwrappedBite({ className, id, shadow = true }: { className?: string; id: string; shadow?: boolean }) {
   return (
     <svg viewBox="0 0 100 100" className={className} aria-hidden="true" focusable="false">
       <defs>
         <FoilDefs id={id} />
       </defs>
-      <ellipse cx="50" cy="92" rx="30" ry="5" fill="#173F2B" opacity="0.12" />
+      {shadow ? <ellipse cx="50" cy="92" rx="30" ry="5" fill="#173F2B" opacity="0.12" /> : null}
       <UnwrappedBiteShape id={id} cx={50} cy={48} r={40} />
     </svg>
   );

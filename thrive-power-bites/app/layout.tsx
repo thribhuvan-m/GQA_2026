@@ -8,6 +8,9 @@ import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { siteUrl } from "@/lib/site-url";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { IntroFlag } from "@/components/motion/intro";
+import { IntroCurtain } from "@/components/motion/intro-curtain";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -58,6 +61,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <SiteFooter />
           <CartDrawer />
+          <SmoothScroll />
+          <IntroFlag />
+          <IntroCurtain />
         </CartProvider>
       </body>
     </html>

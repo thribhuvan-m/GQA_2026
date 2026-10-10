@@ -5,11 +5,13 @@ import productPhoto from "@/public/images/real-product-photo.jpg";
 
 export function BrandStory() {
   return (
-    <section aria-labelledby="story-title" className="py-16 sm:py-24">
+    <section aria-labelledby="story-title" className="overflow-x-clip py-16 sm:py-24">
       <div className="container-page grid items-center gap-12 lg:grid-cols-2">
-        <div className="relative mx-auto w-full max-w-sm">
-          <div aria-hidden="true" className="absolute -inset-4 -rotate-3 rounded-[2rem] bg-leaf/15" />
-          <figure className="relative overflow-hidden rounded-[2rem] bg-white p-3 shadow-lift">
+        <div className="relative mx-auto w-full max-w-sm" data-reveal>
+          <div aria-hidden="true" data-parallax="0.3" className="absolute -inset-4">
+            <div className="h-full w-full -rotate-3 rounded-[2rem] bg-leaf/15" />
+          </div>
+          <figure data-parallax="-0.08" className="relative overflow-hidden rounded-[2rem] bg-white p-3 shadow-lift">
             <Image
               src={productPhoto}
               alt="A bowl of handmade POWER BITES dry-fruit bites"
@@ -20,7 +22,7 @@ export function BrandStory() {
             <figcaption className="px-2 pt-3 pb-1 text-xs text-forest/55">Our handmade bites, before wrapping.</figcaption>
           </figure>
         </div>
-        <div>
+        <div data-reveal>
           <p className="eyebrow">Our story</p>
           <h2 id="story-title" className="heading-lg mt-4">
             Everyday nourishment should be simple.

@@ -14,7 +14,7 @@ function Panel({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="card scroll-mt-28 p-6 sm:p-8">
+    <section id={id} aria-labelledby={`${id}-title`} data-reveal className="card scroll-mt-28 p-6 sm:p-8">
       <div className="flex items-center gap-3">
         <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-cream">
           <Icon className="h-5 w-5 text-leaf" aria-hidden="true" />
