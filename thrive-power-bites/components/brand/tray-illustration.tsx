@@ -3,7 +3,7 @@ import { FoilBiteShape, FoilDefs, UnwrappedBiteShape } from "./bites";
 /** Top view of the proposed inner tray: three cavities, two wrapped bites and one unwrapped. */
 export function TrayIllustration({ id, className }: { id: string; className?: string }) {
   return (
-    <svg viewBox="0 0 420 200" className={className} role="img" aria-labelledby={`${id}-title`}>
+    <svg viewBox="0 0 420 200" className={`aspect-[420/200] ${className ?? ""}`} role="img" aria-labelledby={`${id}-title`}>
       <title id={`${id}-title`}>
         Concept illustration of the inner tray with three cavities holding two gold-foil wrapped bites and one unwrapped bite
       </title>

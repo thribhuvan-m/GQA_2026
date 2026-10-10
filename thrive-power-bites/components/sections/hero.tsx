@@ -53,7 +53,7 @@ export function Hero() {
           <div aria-hidden="true" className="absolute inset-x-6 top-10 bottom-10 rounded-[3rem] bg-gradient-to-b from-beige/80 to-beige/30" />
           <div aria-hidden="true" className="absolute top-14 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full border border-gold/30" />
           <figure className="relative py-6">
-            <PackMockup id="hero-pack" className="relative z-10 h-[24rem] w-auto drop-shadow-[0_30px_40px_rgba(23,63,43,0.18)] sm:h-[30rem]" />
+            <PackMockup id="hero-pack" className="relative z-10 mx-auto block h-[24rem] w-auto drop-shadow-[0_30px_40px_rgba(23,63,43,0.18)] sm:h-[30rem]" />
             <FoilBite id="hero-foil" className="absolute bottom-16 -left-14 z-20 h-24 w-24 animate-float sm:-left-20 sm:h-28 sm:w-28" />
             <UnwrappedBite
               id="hero-bite"

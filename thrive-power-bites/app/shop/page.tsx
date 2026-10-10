@@ -37,7 +37,7 @@ export default function ShopPage() {
           <div>
             <p className="text-sm font-semibold text-forest/60">
               <span className="tracking-[0.24em]">{site.brand.name}</span>
-              <span className="text-gold">{site.brand.suffix}</span>
+              <span className="text-[#9a6a17]">{site.brand.suffix}</span>
             </p>
             <h1 className="mt-2 text-5xl font-extrabold tracking-tight sm:text-6xl">{p.name}</h1>
             <p className="mt-2 text-lg font-semibold text-leaf">{p.flavour}</p>

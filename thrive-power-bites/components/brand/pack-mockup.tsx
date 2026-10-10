@@ -25,7 +25,7 @@ function Leaf({ d, fill, vein = true }: { d: string; fill: string; vein?: boolea
 export function PackMockup({ id, className, title = "Concept illustration of the POWER BITES three-bite hanging carton" }: Props) {
   const p = powerBites;
   return (
-    <svg viewBox="0 0 240 620" className={className} role="img" aria-labelledby={`${id}-title`}>
+    <svg viewBox="0 0 240 620" className={`aspect-[240/620] ${className ?? ""}`} role="img" aria-labelledby={`${id}-title`}>
       <title id={`${id}-title`}>{title}</title>
       <defs>
         <FoilDefs id={id} />

@@ -90,7 +90,7 @@
 }
 
 @utility btn {
-  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-bold tracking-wide transition duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  @apply inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 text-sm font-bold tracking-wide transition duration-200 disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 @utility btn-primary {

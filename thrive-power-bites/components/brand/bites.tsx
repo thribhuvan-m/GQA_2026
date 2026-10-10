@@ -28,12 +28,12 @@ export function FoilBiteShape({ id, cx, cy, r }: { id: string; cx: number; cy: n
   return (
     <g transform={`translate(${cx} ${cy}) scale(${s})`}>
       <circle r="40" fill={`url(#${id}-foil)`} />
-      <g fill="#FFF3C4" opacity="0.35">
+      <g fill="#FFF3C4" opacity="0.22">
         <path d="M-30-12 -14-30 -4-16 -18-4Z" />
         <path d="M2-34 18-28 12-12 0-18Z" />
         <path d="M-36 8 -22 2 -16 18 -30 24Z" />
       </g>
-      <g fill="#7A4A0C" opacity="0.28">
+      <g fill="#7A4A0C" opacity="0.18">
         <path d="M14-6 32-14 36 6 20 10Z" />
         <path d="M-10 14 8 8 14 28-4 34Z" />
         <path d="M20 16 34 14 26 30Z" />

@@ -24,7 +24,9 @@ export function Wordmark({ tone = "forest" }: { tone?: "forest" | "cream" }) {
   return (
     <span className={`inline-flex items-baseline ${color}`}>
       <span className="text-[0.95rem] font-semibold tracking-[0.28em]">{site.brand.name}</span>
-      <span className="text-[0.7rem] font-semibold tracking-wider text-gold">{site.brand.suffix}</span>
+      <span className={`text-[0.7rem] font-bold tracking-wider ${tone === "cream" ? "text-gold" : "text-[#9a6a17]"}`}>
+        {site.brand.suffix}
+      </span>
     </span>
   );
 }
